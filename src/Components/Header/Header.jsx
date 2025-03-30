@@ -1,9 +1,10 @@
+import LoginPage from '../../pages/LoginPage/LoginPage'
 import './Header.css'
 
 function Header(){
     return(
         <div className="header">
-            Users
+            <LoginPage/>
         </div>
     )
 }

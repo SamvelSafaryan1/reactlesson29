@@ -1,4 +1,35 @@
-.users img{
-    width: 100px;
-    border-radius: 50px;
+.users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px;
+    max-width: 250px;
+    width: 100%;
+    text-align: center;
+}
+
+.users h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.users img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.users a {
+    text-decoration: none;
 }

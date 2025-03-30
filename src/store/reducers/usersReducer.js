@@ -1,9 +1,13 @@
 import { socialAPI } from "../../api/api"
 
 const GET_USERS = 'get-users'
+const CHANGE_PAGE = 'change-page'
 
 const initState = {
-    users: []
+    users: [],
+    totalUsersCount: 1000,
+    totalPageCount: 100,
+    page: 1
 }
 
 const usersReducer = (state = initState, action) => {
@@ -13,6 +17,11 @@ const usersReducer = (state = initState, action) => {
                 ...state,
                 users: action.payload
             }
+        case CHANGE_PAGE :
+            return{
+                ...state,
+                page: action.payload
+            }
 
         default :
             return state
@@ -20,10 +29,11 @@ const usersReducer = (state = initState, action) => {
 }
 
 const getUsersAC = (users) => ({type: GET_USERS, payload: users})
+export const changePageAC = (pageNumber) => ({type: CHANGE_PAGE, payload: pageNumber})
 
-export const getUsersTC = () => {
+export const getUsersTC = (page) => {
     return (dispatch) => {
-        socialAPI.getUsers()
+        socialAPI.getUsers(page)
         .then((res) => dispatch(getUsersAC(res.data.items)))
     }
 }

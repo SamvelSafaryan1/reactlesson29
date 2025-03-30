@@ -5,19 +5,23 @@ import { getUsersTC } from './store/reducers/usersReducer'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './Components/Layout/Layout'
 import UsersPage from './pages/UsersPage/UsersPage'
+import ProfilePage from './pages/ProfilePage/Profile'
 
 function App() {
   const dispatch = useDispatch()
 
+  const {page} = useSelector((state) => state.usersPage)
+
   useEffect(() => {
-    dispatch(getUsersTC())
-  }, [dispatch])
+    dispatch(getUsersTC(page))
+  }, [page])
 
   return(
     <div className="app">
       <Routes>
         <Route path='/' element={<Layout/>}/>
-        <Route index element={<UsersPage/>}/>
+        <Route path='/users' element={<UsersPage/>}/>
+        <Route path='/profile/:id' element={<ProfilePage/>}/>
       </Routes>
     </div>
   )
