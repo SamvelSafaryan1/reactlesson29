@@ -2,7 +2,6 @@ import './Users.css'
 import { NavLink } from 'react-router-dom'
 
 function Users({user}){
-    console.log(user)
     
     return(
         <div className="users">

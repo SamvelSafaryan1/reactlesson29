@@ -25,6 +25,7 @@ export const profileTC = (userId) => {
     return (dispatch) => {
         socialAPI.getProfile(userId)
         .then((res) => dispatch(profileAC(res.data)))
+        .catch((err) => console.error(err))
     }
 }
 

@@ -3,17 +3,21 @@ import { useDispatch, useSelector } from "react-redux"
 import { loginTC } from "../../store/reducers/loginReducer"
 import './LoginPage.css'
 import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 
 function LoginPage(){
     const dispatch = useDispatch()
     const {userId} = useSelector((state) => state.auth)
-    const navigate = useNavigate
+    const navigate = useNavigate()
 
-    const authHandler = ({email, password}) => {
-        dispatch(loginTC(email, password))
+    useEffect(() => {
         if(userId){
             navigate(`/profile/${userId}`)
         }
+    }, [userId, navigate])
+
+    const authHandler = ({email, password}) => {
+        dispatch(loginTC(email, password))
     }
 
     return(

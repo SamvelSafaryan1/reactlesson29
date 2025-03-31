@@ -25,6 +25,7 @@ export const loginTC = (email, password) => {
     return (dispatch) => {
         socialAPI.login(email, password)
         .then((res) => dispatch(loginAC(res.data.data.userId)))
+        .catch((err) => console.error(err))
     }
 }
 
