@@ -5,7 +5,7 @@ import { getUsersTC } from './store/reducers/usersReducer'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './Components/Layout/Layout'
 import UsersPage from './pages/UsersPage/UsersPage'
-import ProfilePage from './pages/ProfilePage/Profile'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 function App() {
   const dispatch = useDispatch()

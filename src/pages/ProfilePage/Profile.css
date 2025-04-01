@@ -1,39 +1,66 @@
 .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #f4f6f9;
-    border-radius: 8px;
-    width: 100%;
     max-width: 600px;
-    margin: 0 auto;
-}
-
-.profile-container h1 {
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .photo-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .photo-name h1 {
     font-size: 24px;
-    color: black;
+    color: #333;
     margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.profile-container h3 {
-    font-size: 18px;
-    color: black;
-    margin-bottom: 15px;
-}
-
-.profile-container p {
-    font-size: 16px;
-    color: black;
-    margin-bottom: 20px;
-}
-
-img {
+  }
+  
+  .photo-name img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ddd;
-}
+    border: 3px solid #4caf50;
+    margin-bottom: 15px;
+  }
+  
+  .photo-name p {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .edit input[type="file"] {
+    margin-bottom: 8px;
+  }
+  
+  .edit button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .edit button:hover {
+    background-color: #45a049;
+  }
+  
+  .info {
+    margin-top: 20px;
+    font-size: 16px;
+    color: black;
+  }

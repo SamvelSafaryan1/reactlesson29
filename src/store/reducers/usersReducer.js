@@ -35,6 +35,7 @@ export const getUsersTC = (page) => {
     return (dispatch) => {
         socialAPI.getUsers(page)
         .then((res) => dispatch(getUsersAC(res.data.items)))
+        .catch((err) => console.log(err))
     }
 }
 

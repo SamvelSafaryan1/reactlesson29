@@ -3,7 +3,8 @@ import { socialAPI } from "../../api/api"
 const LOGIN = 'login'
 
 const initState = {
-    userID: null
+    userID: null,
+    session: false
 }
 
 const loginReducer = (state = initState, action) => {
@@ -11,7 +12,8 @@ const loginReducer = (state = initState, action) => {
         case LOGIN :
             return{
                 ...state,
-                userID: action.payload
+                userID: action.payload,
+                session: true
             }
 
         default :

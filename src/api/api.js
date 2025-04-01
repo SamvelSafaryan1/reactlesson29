@@ -1,7 +1,11 @@
 import axios from "axios"
 
 const instance = axios.create({
-    baseURL: 'https://social-network.samuraijs.com/api/1.0'
+    baseURL: 'https://social-network.samuraijs.com/api/1.0',
+    withCredentials: true,
+    headers: {
+        "API-KEY": "4e0f7946-1faf-4c76-8d72-62d57cad379f"
+    }
 })
 
 export const socialAPI = {
@@ -14,4 +18,10 @@ export const socialAPI = {
     getProfile(userId){
         return instance.get(`/profile/${userId}`)
     },
+    putPhotoEdit(file){
+        const formData = new FormData()
+
+        formData.append('file', file)
+            return instance.put('/profile/photo', formData)
+    }
 }
