@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { profileTC } from "../../store/reducers/profileReducer"
 import { useParams } from "react-router-dom"
@@ -6,12 +6,15 @@ import './Profile.css'
 import { socialAPI } from "../../api/api"
 
 const ProfilePage = () => {
+  const [profiles, setProfiles] = useState(local)
   const dispatch = useDispatch()
   const {id} = useParams()
   const {profile} = useSelector((state) => state.profile)
   const {userId} = useSelector((state) => state.auth)
 
-  let isAuth = userId === Number(id)
+  const local = JSON.parse(localStorage.getItem('profile'))
+
+  let isAuth = userId === +id
 
   const editPhoto = (e) => {
       const file = e.target.files[0]
@@ -23,6 +26,12 @@ const ProfilePage = () => {
       dispatch(profileTC(id))
     }  
   }, [id, dispatch])
+
+  useEffect(() => {
+    if(profiles){
+      localStorage.setItem('profile', JSON.stringify(profiles))
+    }
+  }, [profiles])
 
   if(!profile){
     return <div>Loading...</div>
